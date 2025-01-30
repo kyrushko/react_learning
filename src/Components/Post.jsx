@@ -1,17 +1,17 @@
 import React from 'react';
-
+import MyButton from "./Ui/button/MyButton";
 const Post = (props) => {
     return (
             <div className="post">
                 <div className="postContent">
                     <strong>
-                        {props.post.id}.
+                        {props.number}.
                         {props.post.title}
                     </strong>
                     <div>{props.post.body}</div>
                 </div>
                 <div className="postBtn">
-                    <button>Delete post</button>
+                    <MyButton>Delete post</MyButton>
                 </div>
             </div>
 

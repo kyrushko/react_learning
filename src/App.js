@@ -14,13 +14,21 @@ function App() {
         {id: 3, title: 'Abracadabra3', body: 'descr'}
     ]);
     const [title, setTitle] = React.useState("");
-    const bodyInput = React.useRef();
+    const [body, setBody] = React.useState("");
+
 
     const addNewPost = (e)=> {
         e.preventDefault();
-        console.log(title)
-        console.log(bodyInput.current)
+        const newPost = {
+            id : Date.now(),
+            title,
+            body
+        }
+        setPosts([...posts, newPost ]);
+        setTitle("");
+        setBody("");
     }
+
   return (
     <div className="App">
         <form action="">
@@ -32,9 +40,10 @@ function App() {
                 placeholder="header"/>
             {/*second way - through useRef, called an uncontrolled component    */}
             <MyInput
-                ref = {bodyInput}
+                value = {body}
                 type="text"
                 placeholder="body"
+                onChange={e => setBody(e.target.value)}
                />
             <MyButton  onClick={addNewPost}>Send</MyButton>
         </form>
